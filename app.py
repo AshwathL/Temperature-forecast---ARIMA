@@ -1,12 +1,21 @@
 import streamlit as st
 import pandas as pd
+
+import subprocess
+import sys
+
+try:
+    import joblib
+except ImportError:
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "joblib"])
+    import joblib
+    
 import joblib
 import matplotlib.pyplot as plt
 import pickle
 
 # Load the model
-with open('arima_model.pkl', 'rb') as f:
-    model = pickle.load(f)
+model = joblib.load('arima_model.pkl')
 
 # Load data
 df = pd.read_csv('dataset/Electric_Production.csv')
