@@ -9,6 +9,7 @@ try:
 except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "joblib"])
     import joblib
+
     
 import joblib
 import matplotlib.pyplot as plt
