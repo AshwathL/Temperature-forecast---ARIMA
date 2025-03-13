@@ -2,9 +2,11 @@ import streamlit as st
 import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
+import pickle
 
 # Load the model
-model = joblib.load('arima_model.pkl')
+with open('arima_model.pkl', 'rb') as f:
+    model = pickle.load(f)
 
 # Load data
 df = pd.read_csv('dataset/Electric_Production.csv')
